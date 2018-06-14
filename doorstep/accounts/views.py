@@ -49,7 +49,9 @@ class LoginView(CatalogBaseView):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return HttpResponseRedirect(request.POST.get('next', reverse('catalog_index')))
+                return HttpResponseRedirect('/dashboard/')
+                #return HttpResponseRedirect("")  
+                #return HttpResponseRedirect(request.POST.get('next', reverse('catalog_index_test')))
             else:
                 error = ('Your account has been disabled. We apologize for any inconvenience! If this is a mistake'
                          ' please contact our <a href="mailto:%s">support</a>.') % settings.SUPPORT_EMAIL
